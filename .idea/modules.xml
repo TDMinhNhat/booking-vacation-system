@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/booking-vacation-server/booking-vacation-server.iml" filepath="$PROJECT_DIR$/booking-vacation-server/booking-vacation-server.iml" />
       <module fileurl="file://$PROJECT_DIR$/booking-vacation-system.iml" filepath="$PROJECT_DIR$/booking-vacation-system.iml" />
     </modules>
   </component>
