@@ -1,0 +1,11 @@
+spring:
+  application:
+    name: booking-vacation-gateway
+server:
+  port: 8888
+eureka:
+  client:
+    register-with-eureka: true
+    fetch-registry: true
+    service-url:
+      context-path: http://localhost:8761/eureka
