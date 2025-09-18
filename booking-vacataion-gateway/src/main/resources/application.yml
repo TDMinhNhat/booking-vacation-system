@@ -1,14 +1,6 @@
 spring:
   application:
     name: booking-vacation-gateway
-  cloud:
-    gateway:
-      server:
-        webflux:
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
 server:
   port: 8888
 eureka:
@@ -16,4 +8,19 @@ eureka:
     register-with-eureka: true
     fetch-registry: true
     service-url:
-      context-path: http://localhost:8761/eureka
+      defaultZone: http://localhost:8761/eureka
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: DEBUG
+          netflix:
+            eureka: DEBUG
+springdoc:
+  swagger-ui:
+    enabled: true
+    urls:
+      - name: location-service
+        url: /location/v3/api-docs
+    config-url: /v3/api-docs/swagger-config
