@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'io.github.tdminhnhat'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 description = 'location-service'
 
 java {
@@ -22,6 +22,7 @@ configurations {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 ext {
@@ -29,6 +30,7 @@ ext {
 }
 
 dependencies {
+    implementation 'io.github.tdminhnhat:booking-vacation-core:1.0.0'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
