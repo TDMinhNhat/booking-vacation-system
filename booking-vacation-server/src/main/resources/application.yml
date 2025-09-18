@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: booking-vacation-server
+  cloud:
+    loadbalancer:
+      enabled: true
+server:
+  port: 8761
+eureka:
+  client:
+    fetch-registry: false
+    register-with-eureka: false
