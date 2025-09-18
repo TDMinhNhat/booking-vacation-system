@@ -11,6 +11,6 @@ public class GatewayRoutesConfiguration {
     @Bean
     public RouteLocator configRouteLocators(RouteLocatorBuilder builder) {
         return builder.routes()
-                .route("location-service", r -> r.path("/location/**").uri("http://localhost:9091")).build();
+                .route("location-service", r -> r.path("/location/**").uri("lb://location-service")).build();
     }
 }

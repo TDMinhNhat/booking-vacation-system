@@ -26,10 +26,12 @@ eureka:
       defaultZone: http://localhost:8761/eureka
 server:
   port: 9091
+  servlet:
+    context-path: /location
 springdoc:
   api-docs:
     enabled: true
-    path: /location/v3/api-docs
+    path: /v3/api-docs
   swagger-ui:
     enabled: true
-    path: /location/swagger-ui.html
+    path: /swagger-ui.html
