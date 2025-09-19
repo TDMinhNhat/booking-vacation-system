@@ -2,6 +2,7 @@ package io.github.tdminhnhat.core.util;
 
 import io.minio.MinioClient;
 import io.minio.PutObjectArgs;
+import io.minio.RemoveObjectArgs;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
@@ -25,6 +26,13 @@ public class MinioUtil {
                 .object(path + (path.endsWith("/") ? "" : "/") + fileName)
                 .stream(inputStream, file.getSize(), - 1)
                 .contentType(file.getContentType())
+                .build());
+    }
+
+    public void deleteFile(String path, String fileName) throws Exception {
+        minioClient.removeObject(RemoveObjectArgs.builder()
+                .bucket(bucketName)
+                .object(path + (path.endsWith("/") ? "" : "/") + fileName)
                 .build());
     }
 }
