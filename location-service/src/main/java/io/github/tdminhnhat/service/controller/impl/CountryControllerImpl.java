@@ -1,5 +1,6 @@
 package io.github.tdminhnhat.service.controller.impl;
 
+import io.github.tdminhnhat.service.controller.IImageManagementController;
 import io.github.tdminhnhat.service.controller.IManagementController;
 import io.github.tdminhnhat.service.model.dto.CountryDto;
 import io.github.tdminhnhat.service.model.qo.CountryQo;
@@ -9,13 +10,15 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageImpl;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collection;
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/country")
 @RequiredArgsConstructor
-public class CountryControllerImpl implements IManagementController<CountryDto, String, CountryQo> {
+public class CountryControllerImpl implements IManagementController<CountryDto, String, CountryQo>, IImageManagementController<String> {
 
     private final ICountryService countryService;
 
@@ -53,5 +56,41 @@ public class CountryControllerImpl implements IManagementController<CountryDto, 
     @Override
     public ResponseEntity<PageImpl<?>> getAll(@Valid @RequestAttribute CountryQo filter) {
         return ResponseEntity.ok(countryService.getAll(filter));
+    }
+
+    @PostMapping("/image/{id}")
+    @Override
+    public ResponseEntity<?> addImage(@PathVariable("id") String id, @RequestPart MultipartFile image) throws Exception {
+        return ResponseEntity.ok(countryService.addImage(id, image));
+    }
+
+    @Deprecated
+    @Override
+    public ResponseEntity<?> addListImages(String id, MultipartFile[] images) {
+        return null;
+    }
+
+    @PutMapping("/{id}/image")
+    @Override
+    public ResponseEntity<?> updateImage(@PathVariable("id") String id, @RequestPart MultipartFile image) throws Exception {
+        return ResponseEntity.ok(countryService.updateImage(id, image));
+    }
+
+    @Deprecated
+    @Override
+    public ResponseEntity<?> updateImages(String id, MultipartFile[] image) {
+        return null;
+    }
+
+    @DeleteMapping("/{id}/image")
+    @Override
+    public ResponseEntity<?> deleteImage(@PathVariable("id") String id) throws Exception {
+        return ResponseEntity.ok(countryService.deleteImage(id));
+    }
+
+    @Deprecated
+    @Override
+    public ResponseEntity<?> deleteImages(String id) {
+        return null;
     }
 }

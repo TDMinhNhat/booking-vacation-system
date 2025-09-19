@@ -32,7 +32,7 @@ public class MinioUtil {
     public void deleteFile(String path, String fileName) throws Exception {
         minioClient.removeObject(RemoveObjectArgs.builder()
                 .bucket(bucketName)
-                .object(path + (path.endsWith("/") ? "" : "/") + fileName)
+                .object((path != null ? path + (path.endsWith("/") ? "" : "/") : "") + fileName)
                 .build());
     }
 }
