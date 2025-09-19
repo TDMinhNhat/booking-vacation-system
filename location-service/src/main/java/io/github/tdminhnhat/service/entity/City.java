@@ -3,10 +3,12 @@ package io.github.tdminhnhat.service.entity;
 import io.github.tdminhnhat.core.entity.AbstractEntityProperty;
 import jakarta.persistence.*;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 
 @Entity @Table(name = "cities")
 @Getter @Setter
 @NoArgsConstructor @RequiredArgsConstructor
+@DynamicInsert
 public class City extends AbstractEntityProperty {
 
     @Column(name = "city_name", length = 200, nullable = false)

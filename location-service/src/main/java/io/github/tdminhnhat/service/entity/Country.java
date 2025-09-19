@@ -5,10 +5,12 @@ import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
 
 @Entity @Table(name = "countries")
 @Getter @Setter
 @NoArgsConstructor @RequiredArgsConstructor
+@DynamicInsert
 public class Country extends AbstractEntityProperty {
 
     @Column(name = "country_code", length = 50, nullable = false, unique = true)
