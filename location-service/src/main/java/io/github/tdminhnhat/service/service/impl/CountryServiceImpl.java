@@ -7,6 +7,7 @@ import io.github.tdminhnhat.service.model.dto.CountryDto;
 import io.github.tdminhnhat.service.model.qo.CountryQo;
 import io.github.tdminhnhat.service.repository.CountryRepository;
 import io.github.tdminhnhat.service.service.ICountryService;
+import io.github.tdminhnhat.service.util.ValidateImageUtil;
 import jakarta.ws.rs.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -73,6 +74,9 @@ public class CountryServiceImpl implements ICountryService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Object addImage(String id, MultipartFile image) throws Exception{
+        if(!ValidateImageUtil.isImageFile(image)) {
+            throw new BadRequestException("Only accept file with image type: png, jpg, jpeg");
+        }
         Country country = countryRepository.findCountryByCountryCode(id).orElseThrow(() -> new QueryNotFoundException("countryCode = " + id + " wasn't found in database"));
         country.setImageURL("/country/" + image.getResource().getFile());
         minioUtil.uploadFile("/country/", image.getResource().getFilename(), image);
@@ -88,6 +92,9 @@ public class CountryServiceImpl implements ICountryService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Object updateImage(String id, MultipartFile image) throws Exception {
+        if(!ValidateImageUtil.isImageFile(image)) {
+            throw new BadRequestException("Only accept file with image type: png, jpg, jpeg");
+        }
         Country country = countryRepository.findCountryByCountryCode(id).orElseThrow(() -> new QueryNotFoundException("countryCode = " + id + " wasn't found in database"));
         if(country == null) {
             return addImage(id, image);

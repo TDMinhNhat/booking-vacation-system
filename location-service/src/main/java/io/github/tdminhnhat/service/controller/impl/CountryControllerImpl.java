@@ -8,6 +8,7 @@ import io.github.tdminhnhat.service.service.ICountryService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -52,15 +53,15 @@ public class CountryControllerImpl implements IManagementController<CountryDto, 
         return ResponseEntity.ok(countryService.getById(id));
     }
 
-    @GetMapping
+    @PostMapping("/get-list")
     @Override
-    public ResponseEntity<PageImpl<?>> getAll(@Valid @RequestAttribute CountryQo filter) {
+    public ResponseEntity<PageImpl<?>> getAll(@Valid @RequestBody CountryQo filter) {
         return ResponseEntity.ok(countryService.getAll(filter));
     }
 
-    @PostMapping("/image/{id}")
+    @PostMapping(value = "/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Override
-    public ResponseEntity<?> addImage(@PathVariable("id") String id, @RequestPart MultipartFile image) throws Exception {
+    public ResponseEntity<?> addImage(@RequestParam("id") String id, @RequestPart("image") MultipartFile image) throws Exception {
         return ResponseEntity.ok(countryService.addImage(id, image));
     }
 
@@ -70,9 +71,9 @@ public class CountryControllerImpl implements IManagementController<CountryDto, 
         return null;
     }
 
-    @PutMapping("/{id}/image")
+    @PutMapping(value = "/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Override
-    public ResponseEntity<?> updateImage(@PathVariable("id") String id, @RequestPart MultipartFile image) throws Exception {
+    public ResponseEntity<?> updateImage(@RequestParam("id") String id, @RequestPart("image") MultipartFile image) throws Exception {
         return ResponseEntity.ok(countryService.updateImage(id, image));
     }
 

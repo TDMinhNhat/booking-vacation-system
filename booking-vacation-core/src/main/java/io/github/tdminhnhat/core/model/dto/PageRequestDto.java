@@ -1,15 +1,14 @@
 package io.github.tdminhnhat.core.model.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.PositiveOrZero;
-import lombok.Data;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Sort;
 
 import java.util.List;
 
-@Data
 public class PageRequestDto {
 
     @NotBlank(message = "'page' can not be null or empty")
@@ -22,13 +21,39 @@ public class PageRequestDto {
 
     private List<SortRequestDto> sortRequest;
 
+    @JsonIgnore
     public Pageable getPageable() {
         return Pageable.ofSize((int) size).withPage((int) page);
     }
 
+    @JsonIgnore
     public List<Sort.Order> getSort() {
         return sortRequest.stream()
                 .map(sortProperty -> new Sort.Order(Sort.Direction.valueOf(sortProperty.getTypeOrder()), sortProperty.getProperty()))
                 .toList();
+    }
+
+    public long getPage() {
+        return page;
+    }
+
+    public void setPage(long page) {
+        this.page = page;
+    }
+
+    public long getSize() {
+        return size;
+    }
+
+    public void setSize(long size) {
+        this.size = size;
+    }
+
+    public List<SortRequestDto> getSortRequest() {
+        return sortRequest;
+    }
+
+    public void setSortRequest(List<SortRequestDto> sortRequest) {
+        this.sortRequest = sortRequest;
     }
 }

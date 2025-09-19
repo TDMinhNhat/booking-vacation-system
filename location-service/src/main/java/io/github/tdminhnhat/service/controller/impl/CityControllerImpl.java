@@ -8,6 +8,7 @@ import io.github.tdminhnhat.service.service.ICityService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.PageImpl;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -51,15 +52,15 @@ public class CityControllerImpl implements IManagementController<CityDto, Long, 
         return ResponseEntity.ok(cityService.getById(id));
     }
 
-    @GetMapping
+    @PostMapping("/get-list")
     @Override
-    public ResponseEntity<PageImpl<?>> getAll(@Valid @RequestAttribute CityQo filter) {
+    public ResponseEntity<PageImpl<?>> getAll(@Valid @RequestBody CityQo filter) {
         return ResponseEntity.ok(cityService.getAll(filter));
     }
 
-    @PostMapping("/{id}/image")
+    @PostMapping(value = "/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Override
-    public ResponseEntity<?> addImage(@PathVariable("id") Long id, @RequestPart MultipartFile image) throws Exception {
+    public ResponseEntity<?> addImage(@RequestParam("id") Long id, @RequestPart("image") MultipartFile image) throws Exception {
         return ResponseEntity.ok(cityService.addImage(id, image));
     }
 
@@ -69,9 +70,9 @@ public class CityControllerImpl implements IManagementController<CityDto, Long, 
         return null;
     }
 
-    @PutMapping("/{id}/image")
+    @PutMapping(value = "/image", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     @Override
-    public ResponseEntity<?> updateImage(@PathVariable("id") Long id, @RequestPart MultipartFile image) throws Exception {
+    public ResponseEntity<?> updateImage(@RequestParam("id") Long id, @RequestPart("image") MultipartFile image) throws Exception {
         return ResponseEntity.ok(cityService.updateImage(id, image));
     }
 

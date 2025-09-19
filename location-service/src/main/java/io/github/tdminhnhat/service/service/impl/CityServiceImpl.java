@@ -10,6 +10,7 @@ import io.github.tdminhnhat.service.model.vo.CityVo;
 import io.github.tdminhnhat.service.repository.CityRepository;
 import io.github.tdminhnhat.service.repository.CountryRepository;
 import io.github.tdminhnhat.service.service.ICityService;
+import io.github.tdminhnhat.service.util.ValidateImageUtil;
 import jakarta.ws.rs.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
@@ -88,6 +89,9 @@ public class CityServiceImpl implements ICityService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Object addImage(Long id, MultipartFile image) throws Exception {
+        if(!ValidateImageUtil.isImageFile(image)) {
+            throw new BadRequestException("Only accept file with image type: png, jpg, jpeg");
+        }
         City city = cityRepository.findById(id).orElseThrow(() -> new QueryNotFoundException("cityId = " + id + " wasn't found in database"));
         city.setImageURL("/city/" + image.getResource().getFilename());
         minioUtil.uploadFile("/city/", image.getResource().getFilename(), image);
@@ -102,6 +106,9 @@ public class CityServiceImpl implements ICityService {
     @Override
     @Transactional(rollbackFor = Exception.class)
     public Object updateImage(Long id, MultipartFile image) throws Exception {
+        if(!ValidateImageUtil.isImageFile(image)) {
+            throw new BadRequestException("Only accept file with image type: png, jpg, jpeg");
+        }
         City city = cityRepository.findById(id).orElseThrow(() -> new QueryNotFoundException("cityId = " + id + " wasn't found in database"));
         if(city.getImageURL() == null) {
             return addImage(id, image);
