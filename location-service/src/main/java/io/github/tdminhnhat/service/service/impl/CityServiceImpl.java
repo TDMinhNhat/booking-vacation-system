@@ -10,7 +10,7 @@ import io.github.tdminhnhat.service.model.vo.CityVo;
 import io.github.tdminhnhat.service.repository.CityRepository;
 import io.github.tdminhnhat.service.repository.CountryRepository;
 import io.github.tdminhnhat.service.service.ICityService;
-import io.github.tdminhnhat.service.util.ValidateImageUtil;
+import io.github.tdminhnhat.core.util.ValidateImageUtil;
 import jakarta.ws.rs.BadRequestException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;

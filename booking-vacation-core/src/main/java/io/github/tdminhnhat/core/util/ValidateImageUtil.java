@@ -1,4 +1,4 @@
-package io.github.tdminhnhat.service.util;
+package io.github.tdminhnhat.core.util;
 
 import org.springframework.web.multipart.MultipartFile;
 
