@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/booking-vacataion-gateway.main.iml" filepath="$PROJECT_DIR$/.idea/modules/booking-vacataion-gateway.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/booking-vacation-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/booking-vacation-core.main.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/booking-vacation-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/booking-vacation-server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/booking-vacation-system.iml" filepath="$PROJECT_DIR$/booking-vacation-system.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/modules/location-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/location-service.main.iml" />
     </modules>
   </component>
 </project>

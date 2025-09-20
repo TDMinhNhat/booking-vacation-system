@@ -30,6 +30,6 @@ public class Stay extends AbstractEntityProperty {
 
     @ManyToOne @JoinColumn(name = "category_id", nullable = false)
     @NonNull
-    private Category category;
+    private StayCategory stayCategory;
 
 }

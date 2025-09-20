@@ -10,7 +10,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @Getter @Setter
 @NoArgsConstructor @RequiredArgsConstructor
 @DynamicInsert @DynamicUpdate
-public class Category extends AbstractEntityProperty {
+public class StayCategory extends AbstractEntityProperty {
 
     @Column(name = "category_code", length = 50, nullable = false, unique = true)
     @NonNull
@@ -20,7 +20,7 @@ public class Category extends AbstractEntityProperty {
     @NonNull
     private String categoryName;
 
-    public Category(String description, @NonNull String categoryCode, @NonNull String categoryName) {
+    public StayCategory(String description, @NonNull String categoryCode, @NonNull String categoryName) {
         super(description);
         this.categoryCode = categoryCode;
         this.categoryName = categoryName;

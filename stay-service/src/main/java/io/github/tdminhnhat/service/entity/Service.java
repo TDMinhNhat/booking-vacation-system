@@ -16,6 +16,10 @@ public class Service extends AbstractEntityProperty {
     @NonNull
     private String code;
 
+    @Column(name = "service_type", length = 150, nullable = false)
+    @NonNull
+    private String serviceType;
+
     @Column(name = "service_name", length = 100, nullable = false, unique = true)
     @NonNull
     private String name;
@@ -23,9 +27,10 @@ public class Service extends AbstractEntityProperty {
     @Column(name = "image_url", length = 500)
     private String imageUrl;
 
-    public Service(String description, @NonNull String code, @NonNull String name, String imageUrl) {
+    public Service(String description, @NonNull String code, @NonNull String serviceType, @NonNull String name, String imageUrl) {
         super(description);
         this.code = code;
+        this.serviceType = serviceType;
         this.name = name;
         this.imageUrl = imageUrl;
     }
