@@ -3,6 +3,7 @@ package io.github.tdminhnhat.service.repository;
 import io.github.tdminhnhat.service.entity.Rule;
 import io.github.tdminhnhat.service.model.qo.PropertyQo;
 import io.github.tdminhnhat.service.model.qo.RuleQo;
+import io.github.tdminhnhat.service.model.vo.RuleVo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,5 +25,5 @@ public interface RuleRepository extends JpaRepository<Rule, Long> {
         and (:#{#filter.createdBy} is null or r.createdBy like %:#{#filter.createdBy}%)
         and (:#{#filter.updatedBy} is null or r.updatedBy like %:#{#filter.updatedBy}%)
     """)
-    Page<Rule> findAllByFilter(@Param("filter") RuleQo filter, Pageable pageable);
+    Page<RuleVo> getAllRulesByFiler(@Param("filter") RuleQo filter, Pageable pageable);
 }

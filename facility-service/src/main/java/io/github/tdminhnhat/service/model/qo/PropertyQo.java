@@ -1,5 +1,6 @@
 package io.github.tdminhnhat.service.model.qo;
 
+import io.github.tdminhnhat.core.model.dto.PageRequestDto;
 import jakarta.validation.constraints.Positive;
 import jakarta.validation.constraints.Size;
 
@@ -13,6 +14,7 @@ public record PropertyQo(@Positive(message = "should be a positive number") Long
                           String createdBy,
                          @Size(max = 50, message = "max length is {max} characters")
                           String updatedBy,
-                         @Size(max = 200, message = "max length is {max} characters") String name
+                         @Size(max = 200, message = "max length is {max} characters") String name,
+                         PageRequestDto pageRequest
 ) implements Serializable {
 }

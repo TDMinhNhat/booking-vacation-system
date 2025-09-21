@@ -20,4 +20,10 @@ public class Property extends AbstractEntityProperty {
 
     @Column(name = "image_url", length = 500)
     private String imageUrl;
+
+    public Property(String description, @NonNull String name, String imageUrl) {
+        super(description);
+        this.name = name;
+        this.imageUrl = imageUrl;
+    }
 }

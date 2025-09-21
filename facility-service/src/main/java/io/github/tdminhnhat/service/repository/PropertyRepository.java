@@ -2,6 +2,7 @@ package io.github.tdminhnhat.service.repository;
 
 import io.github.tdminhnhat.service.entity.Property;
 import io.github.tdminhnhat.service.model.qo.PropertyQo;
+import io.github.tdminhnhat.service.model.vo.PropertyVo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -22,5 +23,5 @@ public interface PropertyRepository extends JpaRepository<Property, Long> {
         and (:#{#filter.updatedBy} is null or p.updatedBy like %:#{#filter.updatedBy}%)
         order by p.updatedAt desc, p.createdAt desc
     """)
-    Page<Property> getAllPropertiesByFilter(@Param("filter") PropertyQo filter, Pageable pageable);
+    Page<PropertyVo> getAllPropertiesByFilter(@Param("filter") PropertyQo filter, Pageable pageable);
 }

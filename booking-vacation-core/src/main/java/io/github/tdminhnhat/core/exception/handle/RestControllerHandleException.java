@@ -1,5 +1,6 @@
 package io.github.tdminhnhat.core.exception.handle;
 
+import io.github.tdminhnhat.core.exception.InvalidImageFileException;
 import io.github.tdminhnhat.core.exception.QueryNotFoundException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,6 +24,11 @@ public class RestControllerHandleException {
             errors.put(fieldName, errorMessage);
         });
         return ResponseEntity.badRequest().body(errors);
+    }
+
+    @ExceptionHandler(InvalidImageFileException.class)
+    public ResponseEntity<?> handleInvalidImageFileException(InvalidImageFileException e) {
+        return ResponseEntity.badRequest().body("Valid extension file image are: .jpg, .jpeg and .png");
     }
 
     @ExceptionHandler(QueryNotFoundException.class)

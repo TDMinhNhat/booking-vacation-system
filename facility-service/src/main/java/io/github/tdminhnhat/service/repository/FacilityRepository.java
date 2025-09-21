@@ -2,6 +2,7 @@ package io.github.tdminhnhat.service.repository;
 
 import io.github.tdminhnhat.service.entity.Facility;
 import io.github.tdminhnhat.service.model.qo.FacilityQo;
+import io.github.tdminhnhat.service.model.vo.FacilityVo;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -25,5 +26,5 @@ public interface FacilityRepository extends JpaRepository<Facility, Long> {
         and (:#{#filter.delete} is null or f.delete = :#{#filter.delete})
         order by f.updatedAt desc, f.createdAt desc
         """)
-    Page<Facility> getAllFacilitiesByFilter(@Param("filter") FacilityQo filter, Pageable pageable);
+    Page<FacilityVo> getAllFacilitiesByFilter(@Param("filter") FacilityQo filter, Pageable pageable);
 }
