@@ -14,7 +14,7 @@ import org.hibernate.annotations.DynamicUpdate;
 @DynamicInsert @DynamicUpdate
 public class Property extends AbstractEntityProperty {
 
-    @Column(name = "property_name", length = 150, nullable = false, unique = true)
+    @Column(name = "property_name", length = 200, nullable = false, unique = true)
     @NonNull
     private String name;
 

@@ -16,11 +16,11 @@ public class Service extends AbstractEntityProperty {
     @NonNull
     private String code;
 
-    @Column(name = "service_type", length = 150, nullable = false)
+    @Column(name = "service_type", length = 200, nullable = false)
     @NonNull
     private String serviceType;
 
-    @Column(name = "service_name", length = 100, nullable = false, unique = true)
+    @Column(name = "service_name", length = 200, nullable = false, unique = true)
     @NonNull
     private String name;
 
