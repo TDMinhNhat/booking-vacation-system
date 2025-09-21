@@ -32,4 +32,12 @@ public class Stay extends AbstractEntityProperty {
     @NonNull
     private StayCategory stayCategory;
 
+    public Stay(String description, @NonNull String code, @NonNull String name, @NonNull String address, @NonNull Long cityId, @NonNull StayCategory stayCategory) {
+        super(description);
+        this.code = code;
+        this.name = name;
+        this.address = address;
+        this.cityId = cityId;
+        this.stayCategory = stayCategory;
+    }
 }

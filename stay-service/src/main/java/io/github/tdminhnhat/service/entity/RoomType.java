@@ -23,4 +23,11 @@ public class RoomType extends AbstractEntityProperty {
     @Column(name = "size", nullable = false)
     @NonNull
     private Double size;
+
+    public RoomType(String description, @NonNull Stay stay, @NonNull String name, @NonNull Double size) {
+        super(description);
+        this.stay = stay;
+        this.name = name;
+        this.size = size;
+    }
 }

@@ -22,4 +22,11 @@ public class StayImage extends AbstractEntityProperty {
 
     @Column(name = "primary", nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
     private Boolean primary;
+
+    public StayImage(String description, @NonNull Stay stay, @NonNull String imageUrl, Boolean primary) {
+        super(description);
+        this.stay = stay;
+        this.imageUrl = imageUrl;
+        this.primary = primary;
+    }
 }

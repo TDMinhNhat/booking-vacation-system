@@ -38,4 +38,12 @@ public class BedRoomType extends AbstractEntityProperty {
 
     @Column(name = "image_url", length = 500)
     private String imageUrl;
+
+    public BedRoomType(String description, @NonNull RoomType roomType, @NonNull String typeBedroom, @NonNull Integer quantity, String imageUrl) {
+        super(description);
+        this.roomType = roomType;
+        this.typeBedroom = typeBedroom;
+        this.quantity = quantity;
+        this.imageUrl = imageUrl;
+    }
 }

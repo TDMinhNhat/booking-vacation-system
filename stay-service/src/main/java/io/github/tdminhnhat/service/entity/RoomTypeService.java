@@ -1,12 +1,7 @@
-package io.github.tdminhnhat.service;
+package io.github.tdminhnhat.service.entity;
 
 import io.github.tdminhnhat.core.entity.AbstractEntityProperty;
-import io.github.tdminhnhat.service.entity.RoomType;
-import io.github.tdminhnhat.service.entity.Service;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -21,13 +16,13 @@ public class RoomTypeService extends AbstractEntityProperty {
     @NonNull
     private RoomType roomType;
 
-    @ManyToOne @JoinColumn(name = "service_id", nullable = false)
+    @Column(name = "service_id", nullable = false)
     @NonNull
-    private Service service;
+    private Long serviceId;
 
-    public RoomTypeService(String description, @NonNull RoomType roomType, @NonNull Service service) {
+    public RoomTypeService(String description, @NonNull RoomType roomType, @NonNull Long serviceId) {
         super(description);
         this.roomType = roomType;
-        this.service = service;
+        this.serviceId = serviceId;
     }
 }
