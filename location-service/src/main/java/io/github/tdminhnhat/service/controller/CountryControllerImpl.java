@@ -1,7 +1,7 @@
-package io.github.tdminhnhat.service.controller.impl;
+package io.github.tdminhnhat.service.controller;
 
-import io.github.tdminhnhat.service.controller.IImageManagementController;
-import io.github.tdminhnhat.service.controller.IManagementController;
+import io.github.tdminhnhat.core.controller.IImageManagementController;
+import io.github.tdminhnhat.core.controller.IManagementController;
 import io.github.tdminhnhat.service.model.dto.CountryDto;
 import io.github.tdminhnhat.service.model.qo.CountryQo;
 import io.github.tdminhnhat.service.service.ICountryService;
@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Collection;
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/v1/country")

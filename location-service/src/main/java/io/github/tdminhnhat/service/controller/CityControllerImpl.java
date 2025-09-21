@@ -1,7 +1,7 @@
-package io.github.tdminhnhat.service.controller.impl;
+package io.github.tdminhnhat.service.controller;
 
-import io.github.tdminhnhat.service.controller.IImageManagementController;
-import io.github.tdminhnhat.service.controller.IManagementController;
+import io.github.tdminhnhat.core.controller.IImageManagementController;
+import io.github.tdminhnhat.core.controller.IManagementController;
 import io.github.tdminhnhat.service.model.dto.CityDto;
 import io.github.tdminhnhat.service.model.qo.CityQo;
 import io.github.tdminhnhat.service.service.ICityService;
