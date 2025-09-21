@@ -19,11 +19,11 @@ public class StayRule extends AbstractEntityProperty {
     @NonNull
     private Stay stay;
 
-    @ManyToOne @JoinColumn(name = "rule_id", nullable = false)
+    @JoinColumn(name = "rule_id", nullable = false)
     @NonNull
-    private Rule rule;
+    private Long rule;
 
-    public StayRule(String description, @NonNull Stay stay, @NonNull Rule rule) {
+    public StayRule(String description, @NonNull Stay stay, @NonNull Long rule) {
         super(description);
         this.stay = stay;
         this.rule = rule;

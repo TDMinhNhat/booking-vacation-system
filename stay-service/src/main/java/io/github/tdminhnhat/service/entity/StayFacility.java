@@ -1,10 +1,7 @@
 package io.github.tdminhnhat.service.entity;
 
 import io.github.tdminhnhat.core.entity.AbstractEntityProperty;
-import jakarta.persistence.Entity;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
@@ -19,11 +16,11 @@ public class StayFacility extends AbstractEntityProperty {
     @NonNull
     private Stay stay;
 
-    @ManyToOne @JoinColumn(name = "facility_id", nullable = false)
+    @Column(name = "facility_id", nullable = false)
     @NonNull
-    private Facility facility;
+    private Long facility;
 
-    public StayFacility(String description, @NonNull Stay stay, @NonNull Facility facility) {
+    public StayFacility(String description, @NonNull Stay stay, @NonNull Long facility) {
         super(description);
         this.stay = stay;
         this.facility = facility;
