@@ -8,6 +8,7 @@
     <file type="web" url="file://$PROJECT_DIR$/facility-service" />
     <file type="web" url="file://$PROJECT_DIR$/location-service" />
     <file type="web" url="file://$PROJECT_DIR$/price-service" />
+    <file type="web" url="file://$PROJECT_DIR$/review-service" />
     <file type="web" url="file://$PROJECT_DIR$/stay-service" />
     <file type="web" url="file://$PROJECT_DIR$/user-service" />
   </component>
