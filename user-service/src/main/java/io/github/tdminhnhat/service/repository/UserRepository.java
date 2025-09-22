@@ -12,19 +12,24 @@ import org.springframework.data.repository.query.Param;
 public interface UserRepository extends JpaRepository<User, Long> {
 
     @Query("""
-        select u from User u
-        where (:#{#filter.id} is null or u.id = :#{#filter.id})
-        and (:#{#filter.firstName} is null or u.firstName = :#{#filter.firstName})
-        and (:#{#filter.lastName} is null or u.lastName = :#{#filter.lastName})
-        and (:#{#filter.sex} is null or u.sex = :#{#filter.sex})
-        and (:#{#filter.birthDate} is null or u.birthDate = :#{#filter.birthDate})
-        and (:#{#filter.phoneNumber} is null or u.phoneNumber = :#{#filter.phoneNumber})
-        and (:#{#filter.username} is null or u.username = :#{#filter.username})
-        and (:#{#filter.email} is null or u.email = :#{#filter.email})
-        and (:#{#filter.role} is null or u.role = :#{#filter.role})
-        and (:#{#filter.blocking} is null or u.blocking = :#{#filter.blocking})
-        and (:#{#filter.delete} is null or u.delete = :#{#filter.delete})
-        and (:#{#filter.beginCreatedAt} is null or :#{#filter.end} or u.delete = :#{#filter.delete})
-        """)
+            select new io.github.tdminhnhat.service.model.vo.UserVo(
+                    u.id, u.description, u.userId, u.firstName, u.lastName, u.sex, u.birthDate, u.phoneNumber, u.address, u.avatar, u.username, u.email, u.role
+                    ) from User u
+            where (:#{#filter.id} is null or u.id = :#{#filter.id})
+            and (:#{#filter.firstName} is null or u.firstName = :#{#filter.firstName})
+            and (:#{#filter.lastName} is null or u.lastName = :#{#filter.lastName})
+            and (:#{#filter.sex} is null or u.sex = :#{#filter.sex})
+            and (:#{#filter.birthDate} is null or u.birthDate = :#{#filter.birthDate})
+            and (:#{#filter.phoneNumber} is null or u.phoneNumber = :#{#filter.phoneNumber})
+            and (:#{#filter.username} is null or u.username = :#{#filter.username})
+            and (:#{#filter.email} is null or u.email = :#{#filter.email})
+            and (:#{#filter.role} is null or u.role = :#{#filter.role})
+            and (:#{#filter.blocking} is null or u.blocking = :#{#filter.blocking})
+            and (:#{#filter.delete} is null or u.delete = :#{#filter.delete})
+            and (:#{#filter.beginCreatedAt} is null or :#{#filter.endCreatedAt} is null or (u.createdAt >= :#{#filter.beginCreatedAt} and u.createdAt <= :#{#filter.endCreatedAt}))
+            and (:#{#filter.beginUpdatedAt} is null or :#{#filter.endUpdatedAt} is null or (u.createdAt >= :#{#filter.beginUpdatedAt} and u.createdAt <= :#{#filter.endUpdatedAt}))
+            and (:#{#filter.createdBy} is null or u.createdAt = :#{#filter.createdBy})
+            and (:#{#filter.updatedBy} is null or u.updatedBy = :#{#filter.updatedBy})
+            """)
     Page<UserVo> getAllUsersByFilter(@Param("filter") UserQo filter, Pageable pageable);
 }
