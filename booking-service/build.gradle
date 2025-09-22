@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'io.github.tdminhnhat'
-version = '0.0.1-SNAPSHOT'
+version = '1.0.0'
 description = 'booking-service'
 
 java {
@@ -22,6 +22,7 @@ configurations {
 
 repositories {
     mavenCentral()
+    mavenLocal()
 }
 
 ext {
@@ -29,6 +30,13 @@ ext {
 }
 
 dependencies {
+    implementation 'io.github.tdminhnhat:booking-vacation-core:1.0.0'
+    implementation 'org.mapstruct:mapstruct:1.6.3'
+    implementation 'org.mapstruct:mapstruct-processor:1.6.3'
+    implementation 'org.glassfish.jersey.core:jersey-common:3.1.10'
+    implementation 'jakarta.ws.rs:jakarta.ws.rs-api:3.1.0'
+    implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.8.13'
+    implementation 'io.minio:minio:8.4.3'
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-validation'
     implementation 'org.springframework.boot:spring-boot-starter-web'
