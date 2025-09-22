@@ -31,4 +31,11 @@ springdoc:
         url: /stay/v3/api-docs
       - name: user-service
         url: /user/v3/api-docs
+      - name: review-service
+        url: /review/v3/api-docs
+      - name: price-service
+        url: /price/v3/api-docs
+      - name: booking-service
+        url: /booking/v3/api-docs
+
     config-url: /v3/api-docs/swagger-config
