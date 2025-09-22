@@ -14,6 +14,9 @@ public class GatewayRoutesConfiguration {
                 .route("location-service", r -> r.path("/location/**").uri("lb://location-service"))
                 .route("facility-service", r -> r.path("/facility/**").uri("lb://facility-service"))
                 .route("stay-service", r -> r.path("/stay/**").uri("lb://stay-service"))
+                .route("review-service", r -> r.path("/review/**").uri("lb://review-service"))
+                .route("price-service", r -> r.path("/price/**").uri("lb://price-service"))
+                .route("booking-service", r -> r.path("/booking/**").uri("lb://booking-service"))
                 .route("user-service", r -> r.path("/user/**").uri("lb://user-service"))
                 .build();
     }
