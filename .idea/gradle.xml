@@ -49,6 +49,10 @@
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
+        <option name="externalProjectPath" value="$PROJECT_DIR$/price-service" />
+        <option name="gradleJvm" value="21" />
+      </GradleProjectSettings>
+      <GradleProjectSettings>
         <option name="externalProjectPath" value="$PROJECT_DIR$/stay-service" />
         <option name="gradleJvm" value="21" />
         <option name="modules">
