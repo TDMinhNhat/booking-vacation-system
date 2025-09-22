@@ -8,7 +8,7 @@ spring:
     locations: classpath:db/migration
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/stay-service
+    url: jdbc:postgresql://localhost:5432/vacation-stay-service
     username: postgres
     password: 123456789
   jpa:

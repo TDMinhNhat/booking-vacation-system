@@ -6,7 +6,9 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/booking-vacation-core.main.iml" filepath="$PROJECT_DIR$/.idea/modules/booking-vacation-core.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/booking-vacation-server.main.iml" filepath="$PROJECT_DIR$/.idea/modules/booking-vacation-server.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/booking-vacation-system.iml" filepath="$PROJECT_DIR$/booking-vacation-system.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/facility-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/facility-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/location-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/location-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/user-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/user-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/vacation-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/vacation-service.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/vacation-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/vacation-service.test.iml" />
     </modules>
